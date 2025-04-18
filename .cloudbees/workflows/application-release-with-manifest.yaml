@@ -9,6 +9,7 @@ on:
         required: true
 jobs:
   pre-prod:
+    environment: pre-prod
     steps:
       - name: Deploy App4-Frontend to Preprod
         kind: deploy
@@ -44,6 +45,7 @@ jobs:
           name: App4-APIs
   prod:
     needs: pre-prod
+    environment: prod
     steps:
       - name: Deploy App4-Frontend to Prod
         kind: deploy
